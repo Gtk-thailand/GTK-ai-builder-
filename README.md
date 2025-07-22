@@ -19,7 +19,6 @@ API Plugin Marketplace
 Replit & GitHub-integrated development flow
 
 
-
 ---
 
 What I want Copilot/GPT to help with
