@@ -1,10 +1,146 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="th">
 <head>
-  <meta charset="UTF-8" />
-  <title>SolutionGTK</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SolutionGTK - สร้างเว็บไซต์ด้วย AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        #chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            z-index: 1000;
+        }
+        #chatbot-button {
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #chatbot-button:hover {
+            background-color: #1e40af;
+        }
+        #chatbot-window {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+            max-height: 80vh;
+            overflow-y: auto;
+            display: none;
+            margin-bottom: 10px;
+        }
+        @media (min-width: 768px) {
+            #chatbot-window {
+                width: 350px;
+            }
+        }
+        #chatbot-header {
+            background-color: #2563eb;
+            color: white;
+            padding: 10px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        #chatbot-header h3 {
+            margin: 0;
+            font-size: 1rem;
+        }
+    </style>
 </head>
-<body>
-  <h1>Welcome to SolutionGTK AI Builder</h1>
+<body class="bg-gray-100">  <!-- Header -->  <header class="bg-blue-700 text-white p-6">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-bold">SolutionGTK</h1>
+      <nav>
+        <a href="#features" class="mx-2 hover:underline">ฟีเจอร์</a>
+        <a href="#usecases" class="mx-2 hover:underline">กรณีใช้งาน</a>
+        <a href="#plans" class="mx-2 hover:underline">แผนบริการ</a>
+        <a href="#contact" class="mx-2 hover:underline">ติดต่อ</a>
+      </nav>
+    </div>
+  </header>  <!-- Hero Section -->  <section class="text-center py-16 bg-white">
+    <h2 class="text-4xl font-bold text-blue-800">สร้างเว็บไซต์อัตโนมัติด้วย AI</h2>
+    <p class="mt-4 text-lg text-gray-700">เพียงแค่คุยกับแชทบอท ระบบจะสร้างเว็บธุรกิจให้คุณครบวงจร</p>
+    <a href="#contact" class="mt-6 inline-block bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700">เริ่มต้นเลย</a>
+  </section>  <!-- Features Section -->  <section id="features" class="py-16 bg-gray-50">
+    <div class="container mx-auto text-center">
+      <h3 class="text-3xl font-semibold text-blue-700 mb-6">ฟีเจอร์หลัก</h3>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded shadow">
+          <h4 class="font-bold text-xl mb-2">สร้างเว็บไซต์ด้วยเสียง</h4>
+          <p>พูดคำสั่งหรือไอเดีย ระบบจะสร้างเว็บไซต์ทันที</p>
+        </div>
+        <div class="bg-white p-6 rounded shadow">
+          <h4 class="font-bold text-xl mb-2">AI ช่วยเขียนเนื้อหา</h4>
+          <p>เขียนบทความ โพสต์ หรือข้อมูลสินค้าอัตโนมัติ</p>
+        </div>
+        <div class="bg-white p-6 rounded shadow">
+          <h4 class="font-bold text-xl mb-2">เชื่อมต่อระบบหลังบ้าน</h4>
+          <p>บริหารจัดการสินค้า รายการขาย และ CRM ได้ครบ</p>
+        </div>
+      </div>
+    </div>
+  </section>  <!-- Use Case Section -->  <section id="usecases" class="py-16">
+    <div class="container mx-auto text-center">
+      <h3 class="text-3xl font-semibold text-blue-700 mb-6">กรณีใช้งาน</h3>
+      <ul class="space-y-4">
+        <li>สร้างเว็บไซต์ขายสินค้าออนไลน์</li>
+        <li>สร้างหน้า Landing Page สำหรับแคมเปญ</li>
+        <li>เว็บไซต์บริษัท หรือแฟรนไชส์</li>
+      </ul>
+    </div>
+  </section>  <!-- Plans Section -->  <section id="plans" class="py-16 bg-gray-50">
+    <div class="container mx-auto text-center">
+      <h3 class="text-3xl font-semibold text-blue-700 mb-6">แผนการใช้งาน</h3>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded shadow">
+          <h4 class="font-bold text-xl mb-2">ฟรี</h4>
+          <p>ใช้งานฟีเจอร์พื้นฐาน + สร้างเว็บได้ 1 เว็บ</p>
+        </div>
+        <div class="bg-white p-6 rounded shadow">
+          <h4 class="font-bold text-xl mb-2">โปร</h4>
+          <p>สร้างหลายเว็บไซต์, จัดการร้านค้า, API</p>
+        </div>
+        <div class="bg-white p-6 rounded shadow">
+          <h4 class="font-bold text-xl mb-2">องค์กร</h4>
+          <p>สำหรับธุรกิจขนาดใหญ่ พร้อมทีมซัพพอร์ต</p>
+        </div>
+      </div>
+    </div>
+  </section>  <!-- Footer -->  <footer id="contact" class="bg-blue-800 text-white text-center py-6">
+    <p>ติดต่อเรา: solutiongtk@gmail.com | โทร: 099-XXX-XXXX</p>
+  </footer>  <!-- Chatbot -->  <div id="chatbot-container">
+    <div id="chatbot-window">
+      <div id="chatbot-header">
+        <h3>SolutionGTK AI Chatbot</h3>
+        <button onclick="document.getElementById('chatbot-window').style.display='none'">×</button>
+      </div>
+      <div id="chatbot-body" class="p-4 text-sm text-gray-700">
+        <p>สวัสดี! ฉันสามารถช่วยคุณสร้างเว็บไซต์ได้ กรุณาพิมพ์สิ่งที่คุณต้องการ</p>
+      </div>
+    </div>
+    <button id="chatbot-button" onclick="document.getElementById('chatbot-window').style.display='block'">
+      💬
+    </button>
+  </div>
 </body>
 </html>
